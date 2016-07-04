@@ -1,0 +1,50 @@
+{
+  "project": "Random Quote Generator",
+  "version": 1,
+  "releaseDate": "2016-07-03T06:00:00.000Z",
+  "demo": true,
+  "Quotes": [
+    {
+      "id": 0,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 1,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 2,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 3,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 4,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 5,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    },
+    {
+      "id": 6,
+      "quote": "Don't cry because it's over, smile because it happened.",
+      "source": "Dr. Seuss",
+      "citation": "https://en.wikiquote.org/wiki/Dr._Seuss#Disputed"
+    }
+  ]
+}
