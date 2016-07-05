@@ -13,34 +13,41 @@ if(typeof jQuery === 'undefined'){
 }
 
 /*
-On documentReady get the quotes using an ajax request
+On documentReady get the quotes using an ajax request and store it in a variable
 https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
 */
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
 
-function loadJSON(callback) {   
 
-var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-xobj.open('GET', 'js/quotes.json', true);
-xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-        callback(xobj.responseText);
-      }
+xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4){
+        var quoteBox = '<div id="quote-box">'
+        var quotes = JSON.parse(xhr.responseText);
+        console.log(quotes.length);
+        for (var i=0; i<quotes.length; i += 1){
+            quoteBox += '<p class="quote">';
+            quoteBox += quotes[i].quote;
+            quoteBox += '</p>';
+            quoteBox += '<p class="source">';
+            quoteBox += quotes[i].source;
+            quoteBox += '<span class="citation">';
+            quoteBox += quotes[i].citation;
+            quoteBox += '</span>';
+            quoteBox += '<span class="year">';
+            quoteBox += quotes[i].year;
+            quoteBox += '</span>';
+        }
+        quoteBox += '</div>'
+        document.getElementById('quote-box').innerHTML = quoteBox;        
+    }
 };
-xobj.send(null);  
-}
+xhr.open('GET','js/quotes.json');
+xhr.send();
 
-function init() {
- loadJSON(function(response) {
-  // Parse JSON string into object
-    var actual_JSON = JSON.parse(response);
- });
-}
+function getRandomQuote (){
+};
 
 
 /*
@@ -48,16 +55,6 @@ Create a function named getRandomQuote which:
 1. selects a random quote object from the quotes array
 2. returns the randomly selected quote object
 */
-
-
-function getRandomQuote (){
-};
-
-// event listener to respond to "Show another quote" button clicks
-
-
-// when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 /*
 Create a function named printQuote which follows these rules:
@@ -67,4 +64,15 @@ Create a function named printQuote which follows these rules:
 4. printQuote displays the final HTML string to the page. You can use the following JS snippet to accomplish that: document.getElementById('quote-box').innerHTML
 */
 function printQuote(){}
+
+
+
+
+// event listener to respond to "Show another quote" button clicks
+
+
+// when user clicks anywhere on the button, the "printQuote" function is called
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
 
