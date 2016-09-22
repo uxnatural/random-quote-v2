@@ -1,78 +1,18 @@
-/* 
-Check if jQuery was initialized and if not (CDN was down for example), then
-load jQuery from a local source in the js folder of the project.
-*/
-if (window.jQuery) {  
-    console.log("You are running jQuery version: " + $.fn.jquery);  
-} else {
-    console.log("");
-}
-
-if(typeof jQuery === 'undefined'){
-    document.write(unescape("%3Cscript src='js/jquery-3.0.0.min.js' type='text/javascript'%3E%3C/script%3E"));
-}
-
-/*
-On documentReady get the quotes using an ajax request and store it in a variable
-https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
-*/
-
-
-
-xhr = new XMLHttpRequest();
-
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4){
-        var quoteBox = '<div id="quote-box">'
-        var quotes = JSON.parse(xhr.responseText);
-        console.log(quotes.length);
-        for (var i=0; i<quotes.length; i += 1){
-            quoteBox += '<p class="quote">';
-            quoteBox += quotes[i].quote;
-            quoteBox += '</p>';
-            quoteBox += '<p class="source">';
-            quoteBox += quotes[i].source;
-            quoteBox += '<span class="citation">';
-            quoteBox += quotes[i].citation;
-            quoteBox += '</span>';
-            quoteBox += '<span class="year">';
-            quoteBox += quotes[i].year;
-            quoteBox += '</span>';
-        }
-        quoteBox += '</div>'
-        document.getElementById('quote-box').innerHTML = quoteBox;        
-    }
-};
-xhr.open('GET','js/quotes.json');
-xhr.send();
-
-function getRandomQuote (){
-};
-
-
-/*
-Create a function named getRandomQuote which:
-1. selects a random quote object from the quotes array
-2. returns the randomly selected quote object
-*/
-
-/*
-Create a function named printQuote which follows these rules:
-1. printQuote calls the getRandomQuote function and stores the returned quote object in a variable
-2. printQuote constructs a string using the different properties of the quote object using the following HTML template: <p class="quote"> [quote here] </p> <p class="source"> [source here] <span class="citation"> [citation here] </span> <span class="year"> [year here] </span> </p>
-3. printQuote doesn't add a <span class="citation"> for a missing citation or a <span class="year"> if the year property is missing
-4. printQuote displays the final HTML string to the page. You can use the following JS snippet to accomplish that: document.getElementById('quote-box').innerHTML
-*/
-function printQuote(){}
-
-
-
-
 // event listener to respond to "Show another quote" button clicks
-
-
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+//Create an array of JavaScript objects to hold the data for your quotes.
+//Each quote object should have the following properties:
+//A quote property which contains a string: the text of the quote to display on the page
+//A source property which contains a string identifying the creator of the quote. For example: "Mark Twain" or "Traditional Irish proverb"
+//An optional citation property which contains a string identifying the publication the quote appears in. For example, "Famous Anonymous Jokes". If there is no known publication, then do not include this property on the //object.
+//An optional year property which contains a number identifying the date of the quote. For example, 1997. If there is no known date, then do not include this property on the object.
 
-
+var quotes = [
+    {quote:"1. Don't cry because it's over, smile because it happened.", source:"Dr. Seuss",citation:"https://en.wikiquote.org/wiki/Dr._Seuss#Disputed",year:"Unknown"},
+    {quote:"2. Don't cry because it's over, smile because it happened.", source:"Dr. Seuss",citation:"https://en.wikiquote.org/wiki/Dr._Seuss#Disputed",year:"Unknown"},
+    {quote:"3. Don't cry because it's over, smile because it happened.", source:"Dr. Seuss",citation:"https://en.wikiquote.org/wiki/Dr._Seuss#Disputed",year:"Unknown"},
+    {quote:"4. Don't cry because it's over, smile because it happened.", source:"Dr. Seuss",citation:"https://en.wikiquote.org/wiki/Dr._Seuss#Disputed",year:"Unknown"},
+    {quote:"5. Don't cry because it's over, smile because it happened.", source:"Dr. Seuss",citation:"https://en.wikiquote.org/wiki/Dr._Seuss#Disputed",year:"Unknown"}
+];
