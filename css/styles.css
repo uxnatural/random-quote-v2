@@ -4,13 +4,19 @@ body {
   color: white;
   font-family: 'Playfair Display', serif;
 }
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 #quote-box {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  line-height: .5;
+    display: flex;
+    width: 100%;
+    padding: 10% 4% 0 4%;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 .quote {
   font-size: 4rem;
@@ -58,18 +64,12 @@ body {
 }
 
 #loadQuote {
-  position: fixed;
   width: 12em;
-  display: inline-block;
-  left: 50%;
-  margin-left: -6em;
-  bottom: 150px;
-  border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
   background-color: #36b55c;
   padding: 15px 0;
-  transition: .5s ;
+  transition: .5s;
 }
 #loadQuote:hover {
   background-color: rgba(255,255,255,.25);
