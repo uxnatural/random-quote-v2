@@ -34,15 +34,20 @@ for (var i = 0; i < quotes.length; ++i){
     quotesCounter.push(i);
 }
 
+
 function getRandomQuote(){
+    //disabled the button when the quotesCounter has 1 item left
+    if(quotesCounter.length == 1){
+        alert("the end")
+        for (var i = 0; i < quotes.length; ++i){
+            quotesCounter.push(i);
+        }
+    }    
+    
     //take a random number from quotesCounter
     var randomNumber = quotesCounter.splice(Math.random()*quotesCounter.length,1)[0];
     
-    //disabled the button when the quotesCounter has 1 item left
-    if(quotesCounter.length == 1){
-        document.getElementById('loadQuote').innerHTML = "Sorry, we're out of quotes."
-        document.getElementById('loadQuote').disabled = true;
-    }
+
     //returns the randomly selected quote object 
     return quotes[randomNumber];
 
