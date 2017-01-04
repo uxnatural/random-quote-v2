@@ -9,6 +9,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+#timer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    padding:20px;
+    font-weight: 300;
+}
 #quote-box {
     display: flex;
     width: 100%;
